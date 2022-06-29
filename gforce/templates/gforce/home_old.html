@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block title %}
+    ACCUEIL
+{% endblock %}
+
+{% block content %}
+{#    <H1>Page D'accueil</H1>#}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+<div class="home-container">
+
+
+        <div>
+            {% include 'gforce/sujet_component.html' %}
+        </div>
+
+        <div>
+            <h5>{{ salon_count }} Groupe(s) Disponible</h5>
+            <a href="{% url 'add_groupe' %}">Créer Un Salon</a>
+{#        <hr />#}
+            {% include 'gforce/feeds_component.html' %}
+        </div>
+
+        <div>
+            {% include 'gforce/activity_component.html' %}
+        </div>
+    </div>
+{% endblock %}

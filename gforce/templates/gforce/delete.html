@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    Supprimer
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Le Groupe {{ groupe.titre }} sera supprimer definitivement, Voulez-vous Continuer ?</p>
+{#        <a href="{% url 'home' %}">Annuler</a>#}
+        <a href="{{ request.META.HTTP_REFERER }}">Annuler</a>
+        <input type="submit" value="Oui ?">
+    </form>
+{% endblock %}

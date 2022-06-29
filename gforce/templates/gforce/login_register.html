@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block title %}
+    Authentification
+{% endblock %}
+
+{% block content %}
+{% if page == "Connexion" %}
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label for="">Email :</label>
+            <input type="email" name="email" placeholder="Adresse Email" required />
+
+            <label for="">Nom Utilisateur :</label>
+            <input type="password" name="password" placeholder="Mot de passe" required  />
+            <input type="submit" value="Connexion">
+        </form>
+
+        <p>pas encore inscrit ? <a href="{% url 'inscription' %}">Inscription</a></p>
+    </div>
+{% else %}
+    <div>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Inscription">
+        </form>
+
+        <p>Déjà inscrit ? <a href="{% url 'connexion' %}">Connexion</a></p>
+    </div>
+{% endif %}
+{% endblock %}
